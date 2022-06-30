@@ -132,7 +132,7 @@
         headers:{'Content-Type':"application/json"}, 
         body: submitUpdatedDefectJSON 
     }
-    let httpResponse = await fetch (`https://bugcatcher.coe.revaturelabs.com/2/defects/${acceptedDefectId.options[status.selectedIndex].value}`,config)
+    let httpResponse = await fetch (`https://bugcatcher.coe.revaturelabs.com/2/defects/${acceptedDefectId.options[acceptedDefectId.selectedIndex].value}`,config)
     console.log(httpResponse);
 }
 </script>
