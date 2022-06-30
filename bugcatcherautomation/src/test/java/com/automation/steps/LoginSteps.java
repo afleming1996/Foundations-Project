@@ -16,7 +16,7 @@ public class LoginSteps {
     
 @Given("the employee is on the login page")
 public void the_employee_is_on_the_login_page() {
-    TestRunner.driver.get("File://C:/Users/aflem/OneDrive/Desktop/Revature/Week4/Day4/Login-Automation-Example/bugcatcherautomation/src/test/resources/webpages/Login-Page.html");
+    TestRunner.driver.get("File://C:/Users/aflem/OneDrive/Desktop/Revature/Week4/Day4/Login-Automation-Example/Foundations-Project/bugcatcherautomation/src/test/resources/webpages/Login-Page.html");
 }
 @When("the employee clicks the login button")
 public void the_employee_clicks_the_login_button() {

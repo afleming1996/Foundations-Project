@@ -13,7 +13,7 @@ import io.cucumber.java.en.When;
 public class TesterSteps {
     @Given("the tester is logged into their homepage")
 public void the_tester_is_logged_into_their_homepage() {
-    TestRunner.driver.get("File://C:/Users/aflem/OneDrive/Desktop/Revature/Week4/Day4/Login-Automation-Example/bugcatcherautomation/src/test/resources/webpages/Tester-page.html");
+    TestRunner.driver.get("File://C:/Users/aflem/OneDrive/Desktop/Revature/Week4/Day4/Login-Automation-Example/Foundations-Project/bugcatcherautomation/src/test/resources/webpages/Tester-page.html");
 }
     @When("the tester clicks on the submit defects button")
 public void the_tester_clicks_on_the_submit_defects_button() {

@@ -14,7 +14,7 @@ import io.cucumber.java.en.When;
 public class ManagerSteps {
 @Given("the manager is logged in to their homepage")
 public void the_menager_is_logged_in_to_their_homepage(){
-    TestRunner.driver.get("File://C:/Users/aflem/OneDrive/Desktop/Revature/Week4/Day4/Login-Automation-Example/bugcatcherautomation/src/test/resources/webpages/Manager-Page.html");
+    TestRunner.driver.get("File://C:/Users/aflem/OneDrive/Desktop/Revature/Week4/Day4/Login-Automation-Example/Foundations-Project/bugcatcherautomation/src/test/resources/webpages/Manager-Page.html");
 }
 
 
