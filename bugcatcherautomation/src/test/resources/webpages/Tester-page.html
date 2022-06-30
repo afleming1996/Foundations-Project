@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tester-Page</title>
+</head>
+<body onload="getDefects()">
+    <table id="myTable">
+        <tr>
+        <th>
+            Defects
+        </th>
+        <th>
+            Accept/Decline
+        </th>
+        <th>
+            Description
+        </th>
+        </tr>
+                <tr>
+                <td>
+                <select name="defectId" id="defectId">
+                </select>
+                </td>
+                <td>
+                <select name="status" id="status">
+                <option value="Accepted">Accept</option>
+                <option value="Declined">Decline</option>
+                </select>
+                </td> 
+
+                <td id="defectDesc">
+               
+                </td>   
+                <td><button onclick="submit(); alert('defect updated');window.location.reload();"id='submitButton'>Submit</button></td>
+                </tr>
+        </table>
+
+        <table id="myUpdatedTable">
+            <tr>
+            <th>
+                Defects
+            </th>
+            <th>
+                Fix/Reject/Shelve
+            </th>
+            <th>
+                Description
+            </th>
+            </tr>
+                    <tr>
+                    <td>
+                    <select name="acceptedDefectId" id="acceptedDefectId"></select>
+                    </td>
+    
+                    <td>
+                    <select name="Fixed" id="Fixed">
+                    <option value="Fixed">Fix</option>
+                    <option value="Rejected">Reject</option>
+                    <option value="Shelved">Shelve</option>
+                    </select> 
+                    </td>
+
+                    <td id="acceptedDefectDesc">
+
+                    </td>
+                    <td><button onclick="acceptedSubmit(); alert('defect updated');window.location.reload();"id='updatedSubmitButton'>Submit</button>
+                    </td>
+                    </tr>
+            </table>
+</body>
+<script>
+    const myTable = document.getElementById("myTable")
+    const defectId = document.getElementById("defectId")
+    const URL = "https://bugcatcher.coe.revaturelabs.com/2/defects"
+    const defectDesc = document.getElementById("defectDesc")
+    const acceptedDefectId = document.getElementById("acceptedDefectId")
+    const acceptedDefectDesc = document.getElementById("acceptedDefectDesc")
+
+    async function getDefects(){
+        let data = JSON.parse(localStorage.getItem('emp'))
+
+        let config = {
+        method:"GET", 
+        headers:{'Content-Type':"application/json"}, 
+    }
+        let httpResponse = await fetch(URL,config)
+        if(httpResponse.status === 200){
+           
+            let responseBody = await httpResponse.json()         
+            for(username of responseBody){
+                console.log(username)
+                console.log(username.defectId)
+            
+            if(data.username === username['assignedTo']&& username['status']=== 'Pending'){
+                defectId.innerHTML= defectId.innerHTML + `<option>${username['defectId']}</option>`
+                defectDesc.innerHTML= defectDesc.innerHTML + `<option>${username['desc']}</option>`
+            }else if(data.username === username['assignedTo'] && username['status'] === 'Accepted'){
+                acceptedDefectId.innerHTML= acceptedDefectId.innerHTML + `<option>${username['defectId']}</option>`
+                acceptedDefectDesc.innerHTML= acceptedDefectDesc.innerHTML + `<option>${username['desc']}</option>`
+            }
+        }
+    }
+}
+    const status = document.getElementById("status")
+    async function submit(){
+    let submitDefect={
+        status: status.options[status.selectedIndex].value
+
+    }
+
+    let submitDefectJSON=JSON.stringify(submitDefect)
+
+    let config = {
+        method:"PATCH", 
+        headers:{'Content-Type':"application/json"}, 
+        body: submitDefectJSON 
+    }
+    let httpResponse = await fetch (`https://bugcatcher.coe.revaturelabs.com/2/defects/${defectId.options[defectId.selectedIndex].value}`,config)
+}
+
+    const acceptedStatus = document.getElementById("Fixed")
+    async function acceptedSubmit(){
+    let submitUpdatedDefect={
+        status: acceptedStatus.options[acceptedStatus.selectedIndex].value
+
+    }
+
+    let submitUpdatedDefectJSON=JSON.stringify(submitUpdatedDefect)
+
+    let config = {
+        method:"PATCH", 
+        headers:{'Content-Type':"application/json"}, 
+        body: submitUpdatedDefectJSON 
+    }
+    let httpResponse = await fetch (`https://bugcatcher.coe.revaturelabs.com/2/defects/${acceptedDefectId.options[status.selectedIndex].value}`,config)
+    console.log(httpResponse);
+}
+</script>
+</html>

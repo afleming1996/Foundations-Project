@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manager-Homepage</title>
+</head>
+<body>
+ <input type="text" id="defectName">
+ <br>
+ <select name="testerName" id="testerName">   
+    <option value='Nightwing' id="nameOne">Nightwing</option>
+    </select>
+<br>
+<button onclick="createDefect(); alert('defect assigned');window.location.reload()" id="Submit">Submit</button>
+</body>
+<script>
+    async function createDefect(){
+        let defectInfo = {
+        assignedTo: document.getElementById("testerName").value,
+        "dateReported": 0,
+        desc: document.getElementById("defectName").value,
+        "stepsToReproduce": "string",
+        "severity": "Low",
+        "priority": "Low",
+        }
+    
+        let defectJSON = JSON.stringify(defectInfo)
+        console.log(defectInfo)
+        fetch("https://bugcatcher.coe.revaturelabs.com/2/defects", {
+        
+            method:"POST", 
+            headers:{'Content-Type':"application/json"}, 
+            body: defectJSON
+        })
+    }
+</script>
+</html>
