@@ -88,7 +88,6 @@
            
             let responseBody = await httpResponse.json()         
             for(username of responseBody){
-                console.log(username)
                 console.log(username.defectId)
             
             if(data.username === username['assignedTo']&& username['status']=== 'Pending'){

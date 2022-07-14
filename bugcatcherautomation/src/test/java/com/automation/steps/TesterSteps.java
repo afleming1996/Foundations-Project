@@ -1,7 +1,6 @@
 package com.automation.steps;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.automation.runner.TestRunner;
@@ -20,6 +19,7 @@ public void the_tester_clicks_on_the_submit_defects_button() {
     TestRunner.tester.clickButton();
     
     
+    
 }
     @When("the tester clicks the updated defect submit button")
 public void the_tester_clicks_the_updated_defect_submit_button() {
@@ -35,7 +35,7 @@ public void the_tester_clicks_on_the_accept_defect_selection() {
 }
 @Then("the tester should accept the defect")
 public void the_tester_should_accept_the_defect() {
-    TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+    // TestRunner.wait.until(ExpectedConditions.alertIsPresent());
     TestRunner.driver.switchTo().alert().accept();
 
 }
@@ -48,7 +48,7 @@ public void the_tester_clicks_on_the_decline_defect_selection() {
 }
 @Then("the tester should decline the defect")
 public void the_tester_should_decline_the_defect() {
-    TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+    // TestRunner.wait.until(ExpectedConditions.alertIsPresent());
     TestRunner.driver.switchTo().alert().accept();
 }
 
@@ -60,7 +60,7 @@ public void the_tester_clicks_the_rejected_selector() {
 }
 @Then("the tester should reject the defect")
 public void the_tester_should_reject_the_defect() {
-    TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+    //TestRunner.wait.until(ExpectedConditions.alertIsPresent());
     TestRunner.driver.switchTo().alert().accept();
 }
 
@@ -73,7 +73,7 @@ public void the_tester_clicks_the_fixed_selector() {
 }
 @Then("the tester should have fixed the defect")
 public void the_tester_should_have_fixed_the_defect() {
-    TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+    //TestRunner.wait.until(ExpectedConditions.alertIsPresent());
     TestRunner.driver.switchTo().alert().accept();
 }
 
@@ -85,7 +85,7 @@ public void the_tester_clicks_the_shelved_selector() {
 }
 @Then("the tester should have shelved the defect")
 public void the_tester_should_have_shelved_the_defect() {
-    TestRunner.wait.until(ExpectedConditions.alertIsPresent());
+    //TestRunner.wait.until(ExpectedConditions.alertIsPresent());
     TestRunner.driver.switchTo().alert().accept();
 }
 }

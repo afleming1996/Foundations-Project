@@ -38,7 +38,7 @@ public void the_manager_should_have_assigned_the_defect_name() {
 
 @When("the manager enters the Tester Chosen")
 public void the_manager_enters_the_Tester_Chosen(){
-     TestRunner.manager.enterTesterName("Nightwing");
+     TestRunner.manager.enterTesterName("Austin");
 }
 @When("the manager clicks the submit button")
 public void the_manager_clicks_the_submit_button(){
