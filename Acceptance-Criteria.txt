@@ -1,0 +1,78 @@
+Manager Acceptance Criteria
+
+FEATURE: Managers should be able to login to access their homepages
+
+SCENARIO: As a manager I want to sign in so I can view my custom homepage
+
+GIVEN   the manager is on the login page
+WHEN    the manager enters his correct username
+WHEN    the manager enters his correct password
+WHEN    the manager clicks the  manager login button
+THEN    the manager should be logged in the manager homepage
+
+FEATURE: Managers should be able to create defects
+
+SCENARIO: As a manager I want to create defects so that I can start addressing them
+
+GIVEN   the manager is logged in to their homepage
+WHEN    the manager enters the defect name  
+THEN    the manger assigns the defect name
+
+FEATURE: Managers should be able to assign defects
+
+SCENARIO: As a manager I want to assign defects so that the defects can be worked on
+
+GIVEN   the manager is logged in to their homepage
+WHEN    the manager enters the Tester Chosen
+WHEN    the manager clicks the submit button
+THEN    the manager assigns the defect 
+
+Teter Acceptance Criteria
+
+FEATURE: Testers Should be able to login to access their homepages
+
+SCENARIO: As a tester I want to sign in so I can view my custom homepage
+
+GIVEN   the tester is on the login page
+WHEN    the tester enters his correct username
+WHEN    the tester enters his correct password
+WHEN    the tester clicks the tester login button
+THEN    the tester should be logged in the tester homepage
+
+FEATURE: Testers should be able to update defects so they can monitor their progress
+
+SCENARIO: As a tester I want to update defect from pending to accepted so that I can monitor defect progress
+
+GIVEN   the tester is logged into their homepage
+WHEN:   the tester clicks on the accept defect selection
+WHEN:   the tester clicks on the submit defects button
+THEN:   the tester should accept the defect
+
+
+SCENARIO: As a tester I want to update defect from pending to decline so that I can monitor defect progress
+
+GIVEN   the tester is logged into their homepage
+WHEN:   the tester clicks on the decline defect selection
+WHEN:	  the tester clicks on the submit defects button
+THEN:   the tester should decline the defect 
+
+SCENARIO: As a tester I want to update defect from accepted to rejected so that I can monitor defect progress
+
+GIVEN   the tester is logged into their homepage
+WHEN:   The tester clicks the rejected selector
+WHEN:   the tester clicks the updated defect submit button
+THEN:   The tester should reject the defect
+
+SCENARIO: As a tester I want to update defect from accepted to fixed so that I can monitor defect progress
+
+GIVEN   the tester is logged into their homepage
+WHEN:   the tester clicks the fixed selector
+WHEN:   the tester clicks the updated defect submit button
+THEN:   the tester should have fixed the defect
+
+SCENARIO: As a tester I want to update defect from accepted to shelved so that I can monitor defect progress
+
+GIVEN   the tester is logged into their homepage
+WHEN:   the tester clicks the shelved selector
+WHEN:   the tester clicks the updated defect submit button
+THEN:   the tester should have shelved the defect
